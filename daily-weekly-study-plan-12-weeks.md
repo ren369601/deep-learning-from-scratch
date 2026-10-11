@@ -1,20 +1,14 @@
-# 深度学习 12 周压缩学习计划
+# 深度学习课程：12 周学习计划（Week 5-12 修订）
 
-这个版本把原来的 24 周计划压缩到约 3 个月。
+Week 1-3 已完成，Week 4 已完成 Day 1-6，Day 7 周复习待做；下面的 Week 1-4 表格原样保留。Week 5 起以[丛润民老师《深度学习》课程](https://rmcong.github.io/proj_deep_learning_ProfessionalCourse.html)为主线，覆盖官网列出的 12 讲和 5 组实验；不用看网课，改为每天由我讲解、演示，再由你动手练习。当前目标是学扎实课程内容、完成课程实验，为进组做准备；不以实现某一种模型作为额外验收标准。
 
-目标保持不变：
+执行约定：
 
-```text
-从零开始学习深度学习，最终能够从零实现 Transformer，并具备论文阅读与复现能力。
-```
-
-压缩原则：
-
-- Python 和 NumPy 只学深度学习必需部分。
-- CNN、RNN、LSTM 只学核心思想和必要代码，不做长时间深入。
-- 把主要时间留给 PyTorch、反向传播、Attention、Transformer 和论文复现。
-- 每周建议学习 5-6 天，每天 1.5-2.5 小时。
-- 每周至少提交一次 GitHub。
+- 每天仍交付三份材料：知识讲解 `.md`、Python/PyTorch 语法或公式速查 `.md`、练习 `.py`（概念日可用练习 `.md`）。代码格式沿用 Week 3：示例、小练习、当天作业、分段运行入口。
+- 每天建议 1.5-2.5 小时；Day 7 用于复习、补进度和整理 GitHub。新内容难度较高时，以能讲清原理、跑通小实验为准，不强求一天做完大模型。
+- “覆盖所有内容”指课程的**全部讲次、主要知识点及五组实验的要求和选择**都进入学习与验收；实验 5 按原要求从五个选题中完成一个，不等于五个课题都做完。
+- 课程资料发布于 2022 年。框架现状和“前沿趋势”会区分当年的教学内容与学习当天的现状；第 12 讲官网只提供行业讲座视频，我们以官网主题和公开文字资料学习，不声称复述视频细节。
+- 默认用 CPU 可运行的小数据。GPU、较大数据集和复杂复现作为条件允许时的扩展。
 
 ## 12 周总览
 
@@ -24,14 +18,14 @@
 | Week 2 | NumPy + 数学基础 | array、shape、矩阵乘法、梯度直觉 | NumPy Linear Regression |
 | Week 3 | 神经网络基础 | Neuron、Activation、Loss、Backpropagation | NumPy 两层 MLP |
 | Week 4 | PyTorch 基础 | Tensor、Autograd、nn.Module、Optimizer | PyTorch MLP |
-| Week 5 | 训练流程 + CNN | Dataset、DataLoader、训练循环、CNN | MNIST CNN |
-| Week 6 | 序列模型速览 | RNN、LSTM、Embedding、文本分类直觉 | 简单 LSTM 文本分类 |
-| Week 7 | Attention | Q/K/V、Softmax、Scaled Dot-Product Attention | 手写 Attention |
-| Week 8 | Multi-Head Attention | 多头、mask、shape 变化 | 手写 MultiHeadAttention |
-| Week 9 | Transformer Encoder | Embedding、Position、FFN、LayerNorm、Residual | Transformer Encoder |
-| Week 10 | Transformer Decoder + 完整模型 | Decoder、Causal Mask、Cross Attention | 完整 Transformer |
-| Week 11 | 论文阅读与复现 | Attention Is All You Need | 论文笔记 + 对照复现 |
-| Week 12 | 项目整理与实验 | 训练、调参、README、GitHub 整理 | 完整 GitHub 项目 |
+| Week 5 | 课程基础补齐与优化 | 第 1-5 讲、实验 1-2 的未覆盖点 | 分类基线、MLP 训练与正则化对照 |
+| Week 6 | 卷积神经网络 | 第 6-7 讲、实验 3 | CNN 分类与 ResNet/空洞卷积小实验 |
+| Week 7 | 循环神经网络 | 第 8-9 讲、实验 4 | RNN/LSTM/GRU 时序任务对照 |
+| Week 8 | 无监督学习 | 第 10 讲 | Hopfield/RBM 概念图与自编码器实验 |
+| Week 9 | 深度学习前沿 | 第 11 讲 | Attention、VAE/GAN、深度强化学习、GNN 入门实验与笔记 |
+| Week 10 | 行业应用与选题 | 第 12 讲、实验 5 选题 | 五个选题比较、选定一个、建立可复现基线 |
+| Week 11 | 综合实验 | 实验 5 实施 | 选题模型、训练、评估与对照 |
+| Week 12 | 全课程复盘 | 第 1-12 讲、实验 1-5 验收 | 实验报告、知识索引与 GitHub 项目整理 |
 
 ## Week 1：Python 基础与线性模型
 
@@ -81,129 +75,148 @@
 | Day 6 | 训练与验证 | 完成标准训练循环 | `week04/day06_train_validate.py` |
 | Day 7 | 复习 | 整理 PyTorch 标准模板 | `week04/review.md` |
 
-## Week 5：训练流程与 CNN
+## Week 5：补齐课程基础、优化与正则化
 
-| 天数 | 学习内容 | 代码练习 | 产出文件 |
+前四周的练习不返工；这里只补课程第 1-4 讲和实验 1-2 中尚未系统覆盖的知识，再学习第 5 讲。
+
+| 天数 | 学习内容 | 当天练习 | 主要产出 |
 |---|---|---|---|
-| Day 1 | Dataset、DataLoader、batch | 自定义 Dataset | `week05/day01_dataset_dataloader.py` |
-| Day 2 | CNN 直觉、Conv2d、Pooling | 输入输出 shape 计算 | `week05/day02_cnn_intro.py` |
-| Day 3 | MNIST CNN | 搭建 CNN 模型 | `week05/day03_mnist_cnn.py` |
-| Day 4 | 训练 MNIST | 完成训练和验证 | `week05/day04_train_mnist.py` |
-| Day 5 | 过拟合、Dropout、学习率 | 改进 CNN | `week05/day05_improve_cnn.py` |
-| Day 6 | CNN 阶段整理 | README 和结果记录 | `week05/review.md` |
-| Day 7 | 休息 / 补进度 | GitHub 提交 | GitHub commit |
+| Day 1 | 第 1 讲：AI/机器学习/深度学习关系、发展与应用；学习任务的基本元素 | 用已有线性模型解释数据、模型、损失、训练和泛化 | week05/day01_course_map.md |
+| Day 2 | 第 2 讲：线性代数、微积分、概率统计回顾；线性/逻辑/Softmax 回归与感知机 | 手算并实现一个二分类基线，比较回归与分类输出 | week05/day02_classification_baselines.py |
+| Day 3 | 第 3 讲与实验 1：框架组件、TensorFlow/PyTorch；Tensor 与 NumPy 转换、设备、自动求导、线性回归两种写法、分类指标 | 用手动参数和 nn.Module 各训练一次，报告准确率/混淆矩阵 | week05/day03_framework_lab.py |
+| Day 4 | 第 4 讲与实验 2：XOR、前馈网络、前反向传播、手写/框架 MLP；模型选择与 K 折验证 | 在 XOR 或小型表格任务上做 MLP 与 K 折比较 | week05/day04_mlp_model_selection.py |
+| Day 5 | 第 5 讲：mini-batch、SGD/动量/Adam、学习率、参数初始化、输入预处理 | 固定数据和随机种子，比较优化器及学习率 | week05/day05_optimization.py |
+| Day 6 | 第 5 讲与实验 2：归一化、超参数、欠/过拟合、权重衰减、Dropout、早停 | 造一个易过拟合的小任务，记录训练/验证曲线与正则化对照 | week05/day06_regularization.py |
+| Day 7 | 第 1-5 讲、实验 1-2 回顾 | 补齐运行结果、错误分析和课程知识图 | week05/review.md |
 
-## Week 6：序列模型速览
+## Week 6：卷积神经网络（第 6-7 讲、实验 3）
 
-| 天数 | 学习内容 | 代码练习 | 产出文件 |
+| 天数 | 学习内容 | 当天练习 | 主要产出 |
 |---|---|---|---|
-| Day 1 | 序列数据、time step、hidden state | 简单序列预测 | `week06/day01_sequence_intro.py` |
-| Day 2 | RNN 直觉 | 使用 `nn.RNN` | `week06/day02_rnn.py` |
-| Day 3 | LSTM 直觉 | 使用 `nn.LSTM` | `week06/day03_lstm.py` |
-| Day 4 | Embedding | token 到向量 | `week06/day04_embedding.py` |
-| Day 5 | 简单文本分类 | LSTM 文本分类小例子 | `week06/day05_lstm_text_classifier.py` |
-| Day 6 | 为什么需要 Transformer | RNN/LSTM vs Transformer | `week06/day06_why_transformer.md` |
-| Day 7 | 复习 | 整理序列模型核心概念 | `week06/review.md` |
+| Day 1 | 图像张量、卷积/互相关、卷积核、步长、填充和输出尺寸 | 不用现成卷积层手写二维卷积，对照尺寸计算 | week06/day01_convolution.py |
+| Day 2 | 局部连接、参数共享、平移等变性；多通道卷积与池化 | 比较参数量，观察平移/池化前后的输出 | week06/day02_cnn_principles.py |
+| Day 3 | CNN 层级结构与图像分类训练 | 用小数据训练 CNN，记录训练/验证指标 | week06/day03_cnn_classifier.py |
+| Day 4 | 卷积核梯度、转置卷积、空洞卷积 | 跟踪 shape；写空洞或转置卷积小例子 | week06/day04_conv_variants.py |
+| Day 5 | LeNet、AlexNet、Inception：结构、历史动机与代价 | 画数据流，计算关键层参数量 | week06/day05_cnn_architectures.md |
+| Day 6 | ResNet 残差连接；实验 3 综合练习 | 实现残差块，比较普通 CNN 与小型 ResNet | week06/day06_resnet_lab.py |
+| Day 7 | CNN 复习与实验报告 | 检查手写卷积、空洞卷积、分类和 ResNet 的结果 | week06/review.md |
 
-## Week 7：Attention
+## Week 7：循环神经网络（第 8-9 讲、实验 4）
 
-| 天数 | 学习内容 | 代码练习 | 产出文件 |
+| 天数 | 学习内容 | 当天练习 | 主要产出 |
 |---|---|---|---|
-| Day 1 | Attention 直觉 | 查询、匹配、加权求和 | `week07/day01_attention_intro.md` |
-| Day 2 | Q / K / V | 理解三个角色 | `week07/day02_qkv.md` |
-| Day 3 | Dot Product Attention | 计算相似度分数 | `week07/day03_dot_attention.py` |
-| Day 4 | Softmax | 把分数变成权重 | `week07/day04_softmax.py` |
-| Day 5 | Scaled Dot-Product Attention | 手写 Attention 公式 | `week07/day05_scaled_dot_product_attention.py` |
-| Day 6 | Attention shape | 分析 `[B, T, D]` | `week07/day06_attention_shape.md` |
-| Day 7 | 复习 | 整理 Attention 公式 | `week07/review.md` |
+| Day 1 | 序列数据、时间窗、训练/测试切分与泄漏；变长序列填充 | 先按时间切分，再生成窗口和 batch | week07/day01_sequence_data.py |
+| Day 2 | 循环状态与展开、基础 RNN、时间反向传播 BPTT | 手写 RNN cell 前向并检查 shape | week07/day02_rnn_bptt.py |
+| Day 3 | 双向 RNN、深层 RNN 与序列输出方式 | 对比单向/双向输出及应用限制 | week07/day03_bidirectional_deep.py |
+| Day 4 | 长期依赖、梯度消失/爆炸；LSTM 的门与记忆单元 | 手写 LSTM 单步前向，解释各门作用 | week07/day04_lstm.py |
+| Day 5 | GRU 的更新/重置门；RNN/LSTM/GRU 比较 | 在相同输入上运行三种单元并计数参数 | week07/day05_gru_compare.py |
+| Day 6 | 实验 4：时序预测或序列分类；变长序列的 mask/pack | 同一任务训练 RNN、LSTM、GRU，固定切分和指标 | week07/day06_rnn_lab.py |
+| Day 7 | RNN 复习与实验报告 | 总结 BPTT、长程依赖和三种模型的结果 | week07/review.md |
 
-## Week 8：Multi-Head Attention 与 Mask
+## Week 8：无监督学习（第 10 讲）
 
-| 天数 | 学习内容 | 代码练习 | 产出文件 |
+这一周的能量模型以理解结构和训练思想为主；不要求在有限设备上完整训练 DBM/DBN。
+
+| 天数 | 学习内容 | 当天练习 | 主要产出 |
 |---|---|---|---|
-| Day 1 | 为什么需要多头 | 多个 head 的直觉 | `week08/day01_multi_head_intro.md` |
-| Day 2 | split heads | `[B, T, D] → [B, H, T, Dh]` | `week08/day02_split_heads.py` |
-| Day 3 | concat heads | `[B, H, T, Dh] → [B, T, D]` | `week08/day03_concat_heads.py` |
-| Day 4 | Padding Mask | 屏蔽 padding | `week08/day04_padding_mask.py` |
-| Day 5 | Causal Mask | 屏蔽未来 token | `week08/day05_causal_mask.py` |
-| Day 6 | MultiHeadAttention 类 | 手写完整 MHA | `week08/day06_multi_head_attention.py` |
-| Day 7 | 复习 | 测试 MHA shape | `week08/review.md` |
+| Day 1 | 无监督学习的目标；Hopfield 网络、能量与记忆检索 | 做小型二值模式恢复实验 | week08/day01_hopfield.py |
+| Day 2 | Boltzmann 机、受限 Boltzmann 机（RBM）及对比散度思想 | 画可见/隐藏单元，跟踪一次采样更新 | week08/day02_boltzmann_rbm.md |
+| Day 3 | 深度 Boltzmann 机（DBM）、深度信念网络（DBN）、逐层预训练 | 比较两类结构与训练难点 | week08/day03_deep_energy_models.md |
+| Day 4 | 自编码器（AE）的编码、解码、重构损失和瓶颈 | 训练小型 AE 并观察重构误差 | week08/day04_autoencoder.py |
+| Day 5 | 去噪 AE、稀疏 AE 及各自的约束 | 对比有噪/无噪输入，观察重构 | week08/day05_ae_variants.py |
+| Day 6 | 堆叠 AE 与逐层预训练；无监督表征的评价 | 对比 AE 表征与原始输入的简单下游任务 | week08/day06_stacked_ae.py |
+| Day 7 | 无监督学习总复习 | 解释 Hopfield、RBM/DBM/DBN 与 AE 家族的区别 | week08/review.md |
 
-## Week 9：Transformer Encoder
+## Week 9：深度学习前沿（第 11 讲）
 
-| 天数 | 学习内容 | 代码练习 | 产出文件 |
+讲义中的“前沿”按 2022 年的语境阅读；学习当天再核对这些方向目前的状况。Attention 作为第 11 讲的课程内容学习，不额外扩展为独立项目要求。
+
+| 天数 | 学习内容 | 当天练习 | 主要产出 |
 |---|---|---|---|
-| Day 1 | Embedding、Positional Encoding | token 和位置表示 | `week09/day01_embedding_position.py` |
-| Day 2 | Feed Forward Network | FFN 模块 | `week09/day02_ffn.py` |
-| Day 3 | LayerNorm、Residual | 残差和归一化 | `week09/day03_norm_residual.py` |
-| Day 4 | EncoderLayer | 组合 MHA + FFN | `week09/day04_encoder_layer.py` |
-| Day 5 | Encoder | 堆叠多层 Encoder | `week09/day05_encoder.py` |
-| Day 6 | Encoder 测试 | shape 检查和单元测试 | `week09/day06_test_encoder.py` |
-| Day 7 | 复习 | 整理 Encoder 结构 | `week09/review.md` |
+| Day 1 | 注意力机制：查询、键、值与加权汇聚；自注意力入门 | 手算并实现单头缩放点积注意力 | week09/day01_attention.py |
+| Day 2 | 深度生成模型与变分自编码器（VAE）：隐变量、重参数化、重构与 KL | 在小数据上运行最简 VAE 或核对损失各项 | week09/day02_vae.py |
+| Day 3 | 生成对抗网络（GAN）：生成器、判别器、对抗目标与训练不稳定 | 用一维玩具分布做最小 GAN 实验 | week09/day03_gan.py |
+| Day 4 | 深度强化学习：状态、动作、奖励、价值函数、DQN 思想 | 在极小环境中列出转移并计算一步目标值 | week09/day04_deep_rl.md |
+| Day 5 | 图神经网络：图数据、邻域聚合、消息传递与图卷积 | 手算并编码一层邻居聚合 | week09/day05_gnn.py |
+| Day 6 | 深度学习局限与发展方向；比较 Attention/VAE/GAN/RL/GNN 的任务边界 | 写一页案例分析，区分课程当年观点和当前事实 | week09/day06_frontiers_review.md |
+| Day 7 | 第 11 讲复习 | 能解释五类方法的目标、输入输出和主要限制 | week09/review.md |
 
-## Week 10：Transformer Decoder 与完整模型
+## Week 10：行业应用与综合实验选题（第 12 讲、实验 5）
 
-| 天数 | 学习内容 | 代码练习 | 产出文件 |
+第 12 讲官网为行业讲座，没有配套 PDF。当天以官网列出的“AI 框架发展趋势与 MindSpore 实践”主题和公开文字资料讲解，不把它说成讲座逐字内容。实验 5 原要求五选一。
+
+| 天数 | 学习内容 | 当天练习 | 主要产出 |
 |---|---|---|---|
-| Day 1 | Decoder 结构 | 与 Encoder 区别 | `week10/day01_decoder_intro.md` |
-| Day 2 | Masked Self-Attention | Decoder 自注意力 | `week10/day02_masked_self_attention.py` |
-| Day 3 | Cross Attention | Decoder 关注 Encoder 输出 | `week10/day03_cross_attention.py` |
-| Day 4 | DecoderLayer / Decoder | 组合 Decoder | `week10/day04_decoder.py` |
-| Day 5 | 完整 Transformer | Encoder + Decoder | `week10/day05_transformer.py` |
-| Day 6 | 前向传播测试 | 检查完整 shape | `week10/day06_forward_test.py` |
-| Day 7 | 复习 | 整理完整 Transformer 流程 | `week10/review.md` |
+| Day 1 | AI 框架的组件与发展、MindSpore 实践主题；与 PyTorch 概念对照 | 写同一训练任务的框架组件对照表 | week10/day01_framework_industry.md |
+| Day 2 | 实验 5 五个方向：出租车流量预测、微博情感分类、单目标跟踪、顶会论文复现、OneFlow 竞赛 | 比较数据、算力、指标、许可与完成风险 | week10/day02_capstone_options.md |
+| Day 3 | 从五个方向选一个；任务定义与可用数据 | 写任务、数据来源、许可、输入输出和可验收目标 | week10/day03_project_scope.md |
+| Day 4 | 数据检查、训练/验证/测试划分、数据泄漏 | 实现可复现的读取和切分 | week10/day04_data_pipeline.py |
+| Day 5 | 任务指标与简单基线 | 先跑一个朴素基线并保存结果 | week10/day05_baseline.py |
+| Day 6 | 模型方案、资源预算和实验表 | 设计模型与最小可行实验；跑通一个 batch | week10/day06_project_design.md |
+| Day 7 | 选题阶段复盘 | 检查基线、数据许可、资源和下一周风险 | week10/review.md |
 
-## Week 11：论文阅读与复现
+## Week 11：综合实验实施（实验 5）
 
-| 天数 | 学习内容 | 代码 / 笔记 | 产出文件 |
+所有结果必须在相同数据切分和指标下比较。若选“顶会论文复现”，先写清楚是核心机制的小规模复现，不能把玩具实验冒充论文原始结果。
+
+| 天数 | 学习内容 | 当天练习 | 主要产出 |
 |---|---|---|---|
-| Day 1 | 读 Abstract / Introduction | 理解论文动机 | `week11/day01_paper_intro.md` |
-| Day 2 | 读 Model Architecture | 对照自己实现的结构 | `week11/day02_architecture.md` |
-| Day 3 | 读 Attention 公式 | 对照 Attention 代码 | `week11/day03_attention_formula.md` |
-| Day 4 | 读 Multi-Head / FFN / Position | 对照模块代码 | `week11/day04_components.md` |
-| Day 5 | 读训练细节 | optimizer、scheduler、label smoothing | `week11/day05_training_details.md` |
-| Day 6 | 对照论文复现 | 调整命名和结构 | `week11/day06_reproduction.py` |
-| Day 7 | 论文总结 | 写完整论文阅读笔记 | `week11/paper_notes.md` |
+| Day 1 | 针对选题实现最小模型 | 从输入到预测完成一次前向与损失计算 | week11/day01_model.py |
+| Day 2 | 训练循环、日志与保存 | 跑通训练/验证并保存配置和权重 | week11/day02_train.py |
+| Day 3 | 调试与训练稳定性 | 单 batch 过拟合、检查梯度和数据标签 | week11/day03_debug.md |
+| Day 4 | 与 Week 10 基线比较 | 固定评价脚本，记录指标和样例 | week11/day04_evaluate.py |
+| Day 5 | 单变量对照/消融 | 改一个组件或超参数，记录公平比较 | week11/day05_ablation.md |
+| Day 6 | 错误分析与局限 | 按样例分类错误，说明数据/算力限制 | week11/day06_error_analysis.md |
+| Day 7 | 综合实验阶段报告 | 整理任务、数据、方法、结果、问题 | week11/review.md |
 
-## Week 12：训练、实验与 GitHub 项目整理
+## Week 12：全课程复盘与项目整理
 
-| 天数 | 学习内容 | 代码 / 文档 | 产出文件 |
+| 天数 | 学习内容 | 当天练习 | 主要产出 |
 |---|---|---|---|
-| Day 1 | 小型任务训练 Transformer | toy dataset / 小翻译任务 | `week12/day01_train_transformer.py` |
-| Day 2 | 推理生成 | greedy decoding | `week12/day02_inference.py` |
-| Day 3 | 实验记录 | learning rate、layers、heads | `week12/day03_experiment_log.md` |
-| Day 4 | Debug 和调参 | loss、mask、shape 问题 | `week12/day04_debug_notes.md` |
-| Day 5 | 整理项目结构 | `src/`、`docs/`、`examples/` | project structure |
-| Day 6 | 写 README | 安装、运行、项目说明 | `README.md` |
-| Day 7 | 最终检查与提交 | 从零运行项目并推送 | final GitHub commit |
+| Day 1 | 第 1-5 讲、实验 1-2 总复习 | 口述从线性回归到 MLP 的训练全过程 | week12/day01_foundations_review.md |
+| Day 2 | 第 6-9 讲、实验 3-4 总复习 | 解释 CNN 与 RNN/LSTM/GRU 的结构、shape 和适用任务 | week12/day02_cnn_rnn_review.md |
+| Day 3 | 第 10-12 讲总复习 | 对比能量模型/AE、生成模型、Attention、RL、GNN、行业框架 | week12/day03_advanced_review.md |
+| Day 4 | 实验 5 重跑与结果核查 | 从固定种子和配置重跑关键结果 | week12/day04_reproduce.md |
+| Day 5 | 实验报告定稿 | 写方法、对照、结果、局限和引用 | week12/day05_final_report.md |
+| Day 6 | GitHub 项目整理 | 补 README、运行步骤、数据许可、目录索引和测试 | README.md 与项目目录 |
+| Day 7 | 课程验收与进组准备 | 查缺补漏，整理课程知识、实验成果和待向老师请教的问题 | week12/review.md |
 
 ## 每天学习模板
 
-每天建议保持这个结构：
+每天仍按“知识讲解 → 示例代码 → 小练习 → 当天作业 → GitHub 项目积累”的顺序。计划表中的“主要产出”是练习/报告文件；此外当天还会在同一 week 文件夹下配套 dayXX_knowledge.md 和 dayXX_pytorch_syntax.md（数学日用 dayXX_formula.md）。复习日以 review.md 为主。
 
-```text
-weekXX/
-  dayXX_knowledge.md
-  dayXX_python_syntax.md  # 如果当天有新语法
-  dayXX_xxx.py
-  notes.md
-```
+代码练习沿用 Week 3 及以前的文件风格：先示例，后两道左右的小练习和当天作业，保留分段运行入口。当天作业由你写，我检查后再调整下一天难度。
 
-每天结束前检查：
+## 课程覆盖核对
 
-```text
-1. 今天的知识点能不能用自己的话讲出来？
-2. 示例代码能不能独立重写？
-3. 小练习有没有跑通？
-4. 今天的 notes.md 有没有更新？
-5. 是否需要提交 GitHub？
-```
+| 官网内容 | 本计划位置 | 验收重点 |
+|---|---|---|
+| 第 1 讲：深度学习介绍 | Week 5 Day 1 | 术语、发展与应用 |
+| 第 2 讲：数学与机器学习基础 | Week 1-3；Week 5 Day 2 | 回归、分类、感知机及基本数学 |
+| 第 3 讲：框架与 PyTorch | Week 4；Week 5 Day 3 | Tensor、自动求导、框架组件、实验 1 |
+| 第 4 讲：深度前馈网络 | Week 3-4；Week 5 Day 4 | XOR、前/反向传播、MLP |
+| 第 5 讲：优化与正则化 | Week 5 Day 5-6 | 优化器、初始化、归一化、过拟合 |
+| 第 6-7 讲：CNN I/II | Week 6 | 卷积、池化、经典架构、残差 |
+| 第 8-9 讲：RNN I/II | Week 7 | BPTT、双向/深层 RNN、LSTM、GRU |
+| 第 10 讲：无监督学习 | Week 8 | Hopfield、Boltzmann 系、AE 家族 |
+| 第 11 讲：前沿与局限 | Week 9 | Attention、VAE/GAN、深度 RL、GNN、局限 |
+| 第 12 讲：行业应用 | Week 10 Day 1 | 框架趋势、MindSpore 主题；文字资料替代视频 |
+| 实验 1-2：PyTorch 与前馈网络 | Week 4-5 | 两种训练写法、模型选择、正则化 |
+| 实验 3：CNN | Week 6 | 手写卷积、分类、空洞卷积、ResNet |
+| 实验 4：RNN | Week 7 | 序列处理、RNN/LSTM/GRU 对照 |
+| 实验 5：综合选题（五选一） | Week 10-12 | 五题都了解，完成其中一题及报告 |
 
-## 压缩版注意事项
+## 完成标准与后续
 
-12 周版本节奏更快，所以要注意：
+完成计划不等于精通所有模型。验收重点是能解释核心结构与训练目标、运行并分析小实验、分清训练集/验证集、写出综合实验的可复现报告。Hopfield、DBM/DBN、深度强化学习和图神经网络先做到课程级概念与小例子；它们各自深入都需要额外时间。进度不以日历硬推：如果基础或实验明显吃力，可延长到 14-16 周。
 
-- 反向传播、shape、Attention、Mask 是关键点，不能为了赶进度跳过。
-- CNN、RNN、LSTM 只作为理解深度学习和序列建模的桥梁，不做过多扩展。
-- 如果某一周明显吃力，就把 12 周计划延长到 14-16 周，不影响最终目标。
-- 最终目标不是“赶完表格”，而是能自己实现、解释和 debug Transformer。
+课程结束时，以能讲清主要知识点、独立运行并分析实验、提交可复现的综合实验报告为验收。进组后的具体研究方向以老师安排为准，暂不预设额外项目。
+
+## 课程资料
+
+- [课程主页：12 讲和 5 组实验](https://rmcong.github.io/proj_deep_learning_ProfessionalCourse.html)
+- [课程安排 PDF](https://rmcong.github.io/DL%20Course%202022/schedule_p.pdf)
+- [第 5 讲：优化与正则化 PDF](https://rmcong.github.io/DL%20Course%202022/chapter5.pdf)
+- [第 10 讲：无监督学习 PDF](https://rmcong.github.io/DL%20Course%202022/chapter10.pdf)
+- [第 11 讲：深度学习前沿 PDF](https://rmcong.github.io/DL%20Course%202022/chapter11.pdf)
+- [实验 5：综合选题 PDF](https://rmcong.github.io/DL%20Course%202022/experiment5.pdf)
