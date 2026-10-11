@@ -13,7 +13,7 @@
 | Week 1 | Python 基础与线性模型 | 已完成 |
 | Week 2 | NumPy、矩阵与梯度下降 | 已完成 |
 | Week 3 | 神经网络、损失函数与反向传播 | 已完成 |
-| Week 4 | PyTorch、自动求导、MLP、训练与验证 | Day 1-6 已完成；Day 7 周复习待做 |
+| Week 4 | PyTorch、自动求导、MLP、训练与验证 | 已完成 |
 | Week 5-12 | 老师课程其余讲次与实验 | 待学习 |
 
 唯一有效的日程见[12 周学习计划](daily-weekly-study-plan-12-weeks.md)。计划保留前四周内容；后八周覆盖课程官网列出的 12 讲和 5 组实验。综合实验按课程要求了解五个选题，并完成其中一个。
@@ -23,7 +23,7 @@
 - [Week 1](week01/)：纯 Python 线性模型、多输入与批量预测、MSE、周复习。
 - [Week 2](week02/)：NumPy 数组与 shape、矩阵乘法、梯度下降、线性回归、周复习。
 - [Week 3](week03/)：神经元、激活函数、损失函数、反向传播、NumPy 两层 MLP、周复习。
-- [Week 4](week04/)：Tensor、Autograd、nn.Module、优化器、PyTorch MLP、XOR 训练与验证；周复习待做。
+- [Week 4](week04/)：Tensor、Autograd、nn.Module、优化器、PyTorch MLP、XOR 训练与验证、[周复习](week04/review.md)。
 
 每天的资料通常包括 dayXX_knowledge.md、dayXX_pytorch_syntax.md（或对应的 Python/NumPy/公式文档）和 dayXX_*.py；复习记录在 review.md 中。
 

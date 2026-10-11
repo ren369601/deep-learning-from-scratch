@@ -1,6 +1,6 @@
 # 深度学习课程：12 周学习计划（Week 5-12 修订）
 
-Week 1-3 已完成，Week 4 已完成 Day 1-6，Day 7 周复习待做；下面的 Week 1-4 表格原样保留。Week 5 起以[丛润民老师《深度学习》课程](https://rmcong.github.io/proj_deep_learning_ProfessionalCourse.html)为主线，覆盖官网列出的 12 讲和 5 组实验；不用看网课，改为每天由我讲解、演示，再由你动手练习。当前目标是学扎实课程内容、完成课程实验，为进组做准备；不以实现某一种模型作为额外验收标准。
+Week 1-4 已完成；下面的 Week 1-4 表格原样保留。Week 5 起以[丛润民老师《深度学习》课程](https://rmcong.github.io/proj_deep_learning_ProfessionalCourse.html)为主线，覆盖官网列出的 12 讲和 5 组实验；不用看网课，改为每天由我讲解、演示，再由你动手练习。当前目标是学扎实课程内容、完成课程实验，为进组做准备；不以实现某一种模型作为额外验收标准。
 
 执行约定：
 

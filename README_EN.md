@@ -13,7 +13,7 @@ The daily format is concept notes, a syntax or formula reference, example code, 
 | Week 1 | Python and linear models | Complete |
 | Week 2 | NumPy, matrices, and gradient descent | Complete |
 | Week 3 | Neural networks, losses, and backpropagation | Complete |
-| Week 4 | PyTorch, autograd, MLPs, training, and validation | Days 1-6 complete; Day 7 review pending |
+| Week 4 | PyTorch, autograd, MLPs, training, and validation | Complete |
 | Weeks 5-12 | Remaining course lectures and labs | Upcoming |
 
 The [12-week study plan](daily-weekly-study-plan-12-weeks.md) is the single current schedule. Its first four weeks are preserved; the remaining weeks cover all 12 lectures and five labs listed on the course site. The final lab offers five project choices, of which one will be completed.
@@ -23,7 +23,7 @@ The [12-week study plan](daily-weekly-study-plan-12-weeks.md) is the single curr
 - [Week 1](week01/): plain-Python linear models, multiple features and batches, MSE, and review.
 - [Week 2](week02/): NumPy arrays and shapes, matrix multiplication, gradient descent, linear regression, and review.
 - [Week 3](week03/): neurons, activation functions, losses, backpropagation, a two-layer NumPy MLP, and review.
-- [Week 4](week04/): tensors, autograd, nn.Module, optimizers, a PyTorch MLP, and XOR training/validation; weekly review pending.
+- [Week 4](week04/): tensors, autograd, nn.Module, optimizers, a PyTorch MLP, XOR training/validation, and the [weekly review](week04/review.md).
 
 A typical day contains dayXX_knowledge.md, a Python/NumPy/PyTorch syntax or formula note, and dayXX_*.py. Weekly reflections are kept in review.md.
 
