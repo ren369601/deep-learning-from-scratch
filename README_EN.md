@@ -14,7 +14,8 @@ The daily format is concept notes, a syntax or formula reference, example code, 
 | Week 2 | NumPy, matrices, and gradient descent | Complete |
 | Week 3 | Neural networks, losses, and backpropagation | Complete |
 | Week 4 | PyTorch, autograd, MLPs, training, and validation | Complete |
-| Weeks 5-12 | Remaining course lectures and labs | Upcoming |
+| Week 5 | Foundations, optimization, regularization, and lab review | Days 1-7 code/review complete; Day 1 application analysis pending |
+| Weeks 6-12 | CNNs, RNNs, unsupervised learning, frontiers, and capstone | Upcoming |
 
 The [12-week study plan](daily-weekly-study-plan-12-weeks.md) is the single current schedule. Its first four weeks are preserved; the remaining weeks cover all 12 lectures and five labs listed on the course site. The final lab offers five project choices, of which one will be completed.
 
@@ -24,6 +25,7 @@ The [12-week study plan](daily-weekly-study-plan-12-weeks.md) is the single curr
 - [Week 2](week02/): NumPy arrays and shapes, matrix multiplication, gradient descent, linear regression, and review.
 - [Week 3](week03/): neurons, activation functions, losses, backpropagation, a two-layer NumPy MLP, and review.
 - [Week 4](week04/): tensors, autograd, nn.Module, optimizers, a PyTorch MLP, XOR training/validation, and the [weekly review](week04/review.md).
+- [Week 5](week05/): classification, framework labs, MLP/K-fold validation, optimization, regularization, and the [review log](week05/review.md). Days 5-7 include assistant-completed reference solutions; the personal Day 1 application analysis is pending.
 
 A typical day contains dayXX_knowledge.md, a Python/NumPy/PyTorch syntax or formula note, and dayXX_*.py. Weekly reflections are kept in review.md.
 
@@ -44,7 +46,7 @@ Use a Python virtual environment. Dependency versions are listed in [requirement
 python -m venv .venv
 .venv/Scripts/Activate.ps1
 python -m pip install -r requirements.txt
-python week04/day06_train_validate.py
+python week05/day07_week05_review.py
 ~~~
 
 On macOS/Linux, activate the environment with source .venv/bin/activate. Read the concept and syntax notes in a day folder before running its exercise.
