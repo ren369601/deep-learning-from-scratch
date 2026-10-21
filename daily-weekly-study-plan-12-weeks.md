@@ -2,7 +2,7 @@
 
 Week 1-4 已完成；下面的 Week 1-4 表格原样保留。Week 5 起以[丛润民老师《深度学习》课程](https://rmcong.github.io/proj_deep_learning_ProfessionalCourse.html)为主线，覆盖官网列出的 12 讲和 5 组实验；不用看网课，改为每天由我讲解、演示，再由你动手练习。当前目标是学扎实课程内容、完成课程实验，为进组做准备；不以实现某一种模型作为额外验收标准。
 
-当前进度：Week 5 Day 1-7 的代码与周复习记录已完成，Day 5-7 含参考补全实现；Day 1 个人应用分析待补。下一阶段从 Week 6 Day 1（CNN）开始。
+当前进度：Week 5 Day 1-7 的代码与周复习记录已完成，Day 5-7 含参考补全实现；Day 1 个人应用分析待补。Week 6 Day 1-5 代码已完成并运行核对，其中部分由助手按要求补全，不等于独立掌握。Week 6 Day 6（ResNet）三份材料、练习和作业已补齐，运行结果见当天知识讲解；Day 7 周复习待进行。
 
 执行约定：
 
@@ -99,7 +99,7 @@ Week 1-4 已完成；下面的 Week 1-4 表格原样保留。Week 5 起以[丛�
 | Day 2 | 局部连接、参数共享、平移等变性；多通道卷积与池化 | 比较参数量，观察平移/池化前后的输出 | week06/day02_cnn_principles.py |
 | Day 3 | CNN 层级结构与图像分类训练 | 用小数据训练 CNN，记录训练/验证指标 | week06/day03_cnn_classifier.py |
 | Day 4 | 卷积核梯度、转置卷积、空洞卷积 | 跟踪 shape；写空洞或转置卷积小例子 | week06/day04_conv_variants.py |
-| Day 5 | LeNet、AlexNet、Inception：结构、历史动机与代价 | 画数据流，计算关键层参数量 | week06/day05_cnn_architectures.md |
+| Day 5 | LeNet、AlexNet、Inception：结构、历史动机与代价 | 画数据流，计算关键层参数量，搭建小型分支分类器 | week06/day05_cnn_architectures.py |
 | Day 6 | ResNet 残差连接；实验 3 综合练习 | 实现残差块，比较普通 CNN 与小型 ResNet | week06/day06_resnet_lab.py |
 | Day 7 | CNN 复习与实验报告 | 检查手写卷积、空洞卷积、分类和 ResNet 的结果 | week06/review.md |
 
@@ -187,9 +187,11 @@ Week 1-4 已完成；下面的 Week 1-4 表格原样保留。Week 5 起以[丛�
 
 每天仍按“知识讲解 → 示例代码 → 小练习 → 当天作业 → GitHub 项目积累”的顺序。计划表中的“主要产出”是练习/报告文件；此外当天还会在同一 week 文件夹下配套 dayXX_knowledge.md 和 dayXX_pytorch_syntax.md（数学日用 dayXX_formula.md）。复习日以 review.md 为主。
 
-知识讲解从 Week 5 Day 2 起采用详细写法：先讲直觉和符号，再用小数字例子解释公式，逐步对应代码与 shape，列出常见误解；内容较多时标明首次阅读的重点与可回查的数学部分。
+知识讲解采用详细的小步推导：新术语出现时先解释含义；尽量沿用同一组小数字，完整展开每一步计算；先数位置、观察结果，再推导公式；代码逐句对应含义与 shape；安排可立即核对的小问题，并列出常见误解。内容较多时标明分次阅读的顺序，避免只增加篇幅而省略中间步骤。
 
 代码练习沿用 Week 3 及以前的文件风格：先示例，后两道左右的小练习和当天作业，保留分段运行入口。当天作业由你写，我检查后再调整下一天难度。
+
+从 Week 6 Day 3 起，新生成的 Python 文件使用中文注释、中文文档字符串、中文练习说明与输出提示；函数名、变量名和库接口保留惯用英文，便于阅读和检索。
 
 ## 课程覆盖核对
 

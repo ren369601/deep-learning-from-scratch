@@ -1,56 +1,32 @@
-# 深度学习课程学习记录
+# 深度学习基础与实验
 
 [中文](README.md) | [English](README_EN.md)
 
-本仓库记录从零学习深度学习的过程。当前以[丛润民老师《深度学习》课程](https://rmcong.github.io/proj_deep_learning_ProfessionalCourse.html)为主线，目标是掌握课程知识、完成实验，为进组做准备。仓库名称沿用早期名称，但不以实现 Transformer 作为结课标准。
+基于 Python、NumPy 和 PyTorch 的深度学习学习与实验记录，沿[丛润民老师《深度学习》课程](https://rmcong.github.io/proj_deep_learning_ProfessionalCourse.html)逐步推进。重点展示基础算法实现、模型训练与验证，以及控制变量的实验分析；目前为课程实践项目，非原创研究成果。
 
-学习方式是不看网课，由每日知识讲解、语法或公式速查、示例代码、小练习、当天作业与周复习组成。练习先独立完成，再检查结果和理解。
+## 已完成内容
 
-## 当前进度
+- **基础实现（Week 1–3）**：线性回归、矩阵运算、梯度下降、反向传播与 NumPy 两层 MLP。
+- **PyTorch 实践（Week 4–5）**：自动求导、分类训练、训练／验证划分、K 折验证、优化器与正则化对照。
+- **卷积网络（Week 6 Day 1–6）**：手写二维互相关、多通道卷积与转置卷积；CNN 分类；LeNet/Inception 教学实现；残差块及普通 CNN／残差网络配对实验。
 
-| 周次 | 内容 | 状态 |
-|---|---|---|
-| Week 1 | Python 基础与线性模型 | 已完成 |
-| Week 2 | NumPy、矩阵与梯度下降 | 已完成 |
-| Week 3 | 神经网络、损失函数与反向传播 | 已完成 |
-| Week 4 | PyTorch、自动求导、MLP、训练与验证 | 已完成 |
-| Week 5 | 课程基础、优化、正则化与实验复习 | Day 1-7 代码与复习已完成；Day 1 应用分析待补 |
-| Week 6-12 | CNN、RNN、无监督学习、前沿与综合实验 | 待学习 |
+## 代表实验
 
-唯一有效的日程见[12 周学习计划](daily-weekly-study-plan-12-weeks.md)。计划保留前四周内容；后八周覆盖课程官网列出的 12 讲和 5 组实验。综合实验按课程要求了解五个选题，并完成其中一个。
+| 实现 | 可查看内容 |
+|---|---|
+| [NumPy MLP](week03/day06_mlp_train.py) | 前向传播、梯度计算与参数更新 |
+| [手写转置卷积](week06/day04_conv_variants.py) | 贡献块累加、三组 PyTorch 数值对照 |
+| [残差网络对照](week06/day06_resnet_lab.py) | 三个初始化种子，相同参数量、初始权重和批次顺序，仅切换残差相加 |
 
-## 已完成练习
+残差对照采用本地合成横线／竖线数据。两组网络均为 3658 个参数，最终验证准确率均为 100%；本次残差网络最终验证损失更低。[配置、结果与局限](week06/day06_knowledge.md)均已记录；该结果不代表自然图像性能或论文级复现。
 
-- [Week 1](week01/)：纯 Python 线性模型、多输入与批量预测、MSE、周复习。
-- [Week 2](week02/)：NumPy 数组与 shape、矩阵乘法、梯度下降、线性回归、周复习。
-- [Week 3](week03/)：神经元、激活函数、损失函数、反向传播、NumPy 两层 MLP、周复习。
-- [Week 4](week04/)：Tensor、Autograd、nn.Module、优化器、PyTorch MLP、XOR 训练与验证、[周复习](week04/review.md)。
-- [Week 5](week05/)：分类基础、框架实验、MLP/K 折、优化器对照、正则化与[周复习记录](week05/review.md)。Day 5-7 包含助手补全的参考实现，Day 1 个人应用分析待补。
+## 运行
 
-每天的资料通常包括 dayXX_knowledge.md、dayXX_pytorch_syntax.md（或对应的 Python/NumPy/公式文档）和 dayXX_*.py；复习记录在 review.md 中。
+依赖版本见 [requirements.txt](requirements.txt)，默认使用 CPU。创建并激活虚拟环境后，在仓库根目录运行：
 
-## 后续课程路线
-
-1. 补齐课程基础、优化与正则化。
-2. 卷积神经网络与 CNN 实验。
-3. 循环神经网络与序列实验。
-4. 无监督学习。
-5. 注意力、生成模型、深度强化学习、图神经网络及课程中的行业主题。
-6. 完成一个综合实验，整理可复现的报告与进组准备材料。
-
-## 运行环境
-
-建议使用 Python 虚拟环境；依赖版本见 [requirements.txt](requirements.txt)。仓库中的练习默认以 CPU 为主。
-
-~~~powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
+```powershell
 python -m pip install -r requirements.txt
-python week05/day07_week05_review.py
-~~~
+python -X utf8 week06/day06_resnet_lab.py
+```
 
-macOS/Linux 激活命令为 source .venv/bin/activate。运行某一天的练习前，可先阅读同目录的知识讲解与语法文档。
-
-## 课程完成标准
-
-能解释主要模型的结构与训练目标，独立运行并分析实验，清楚区分训练与验证数据，并提交一个可复现的综合实验报告。进组后的研究方向以老师安排为准。
+每个学习日包含知识讲解、语法速查与练习代码。当前进度至 Week 6 Day 6，后续内容见 [12 周计划](daily-weekly-study-plan-12-weeks.md)；尚未完成全部课程。讲解与部分参考解答使用 AI 辅助编写，具体补全与运行记录保留在学习材料中，不将助手补全等同于独立实现。

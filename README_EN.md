@@ -1,56 +1,32 @@
-# Deep Learning Course Study Log
+# Deep Learning Foundations and Experiments
 
 [中文](README.md) | [English](README_EN.md)
 
-This repository documents a journey through deep learning from the fundamentals. The current focus is [Professor Runmin Cong's Deep Learning course](https://rmcong.github.io/proj_deep_learning_ProfessionalCourse.html): understand the course material, complete its experiments, and prepare to join the research group. The repository name is a legacy name; implementing a Transformer is not a graduation requirement for this course.
+A Python, NumPy, and PyTorch learning repository following [Professor Runmin Cong's Deep Learning course](https://rmcong.github.io/proj_deep_learning_ProfessionalCourse.html). It documents foundational implementations, model training and validation, and controlled comparisons. This is coursework in progress, not original research.
 
-The daily format is concept notes, a syntax or formula reference, example code, small exercises, homework, and a weekly review. Exercises are attempted independently before review.
+## Completed Work
 
-## Progress
+- **Foundations (Weeks 1–3):** linear regression, matrix operations, gradient descent, backpropagation, and a two-layer NumPy MLP.
+- **PyTorch (Weeks 4–5):** autograd, classification, training/validation splits, K-fold validation, optimizer and regularization comparisons.
+- **CNNs (Week 6, Days 1–6):** manual 2D cross-correlation, multi-channel and transposed convolution; image classification; teaching versions of LeNet/Inception; residual blocks and paired plain/residual network experiments.
 
-| Week | Topic | Status |
-|---|---|---|
-| Week 1 | Python and linear models | Complete |
-| Week 2 | NumPy, matrices, and gradient descent | Complete |
-| Week 3 | Neural networks, losses, and backpropagation | Complete |
-| Week 4 | PyTorch, autograd, MLPs, training, and validation | Complete |
-| Week 5 | Foundations, optimization, regularization, and lab review | Days 1-7 code/review complete; Day 1 application analysis pending |
-| Weeks 6-12 | CNNs, RNNs, unsupervised learning, frontiers, and capstone | Upcoming |
+## Selected Experiments
 
-The [12-week study plan](daily-weekly-study-plan-12-weeks.md) is the single current schedule. Its first four weeks are preserved; the remaining weeks cover all 12 lectures and five labs listed on the course site. The final lab offers five project choices, of which one will be completed.
+| Implementation | What It Demonstrates |
+|---|---|
+| [NumPy MLP](week03/day06_mlp_train.py) | Forward propagation, gradient computation, and parameter updates |
+| [Manual transposed convolution](week06/day04_conv_variants.py) | Overlapping contributions and three numerical checks against PyTorch |
+| [Residual network comparison](week06/day06_resnet_lab.py) | Three initialization seeds; matched parameter counts, initial weights, and batch order; only residual addition is toggled |
 
-## Completed Exercises
+On synthetic horizontal/vertical line images, both networks have 3,658 parameters and reach 100% validation accuracy. The residual network has lower final validation loss in these runs. [Settings, results, and limitations](week06/day06_knowledge.md) are documented; these results do not establish natural-image performance or reproduce the original paper.
 
-- [Week 1](week01/): plain-Python linear models, multiple features and batches, MSE, and review.
-- [Week 2](week02/): NumPy arrays and shapes, matrix multiplication, gradient descent, linear regression, and review.
-- [Week 3](week03/): neurons, activation functions, losses, backpropagation, a two-layer NumPy MLP, and review.
-- [Week 4](week04/): tensors, autograd, nn.Module, optimizers, a PyTorch MLP, XOR training/validation, and the [weekly review](week04/review.md).
-- [Week 5](week05/): classification, framework labs, MLP/K-fold validation, optimization, regularization, and the [review log](week05/review.md). Days 5-7 include assistant-completed reference solutions; the personal Day 1 application analysis is pending.
+## Run
 
-A typical day contains dayXX_knowledge.md, a Python/NumPy/PyTorch syntax or formula note, and dayXX_*.py. Weekly reflections are kept in review.md.
+Dependencies are pinned in [requirements.txt](requirements.txt). CPU is sufficient. After creating and activating a virtual environment, run from the repository root:
 
-## Course Roadmap
-
-1. Fill remaining foundation gaps; optimization and regularization.
-2. CNNs and the convolutional network lab.
-3. RNNs and the sequence modeling lab.
-4. Unsupervised learning.
-5. Attention, generative models, deep reinforcement learning, graph neural networks, and the course's industry topic.
-6. Complete one capstone lab and prepare a reproducible report for research-group entry.
-
-## Setup
-
-Use a Python virtual environment. Dependency versions are listed in [requirements.txt](requirements.txt). The exercises are designed to run on a CPU by default.
-
-~~~powershell
-python -m venv .venv
-.venv/Scripts/Activate.ps1
+```powershell
 python -m pip install -r requirements.txt
-python week05/day07_week05_review.py
-~~~
+python -X utf8 week06/day06_resnet_lab.py
+```
 
-On macOS/Linux, activate the environment with source .venv/bin/activate. Read the concept and syntax notes in a day folder before running its exercise.
-
-## Completion Criteria
-
-Explain the main models and learning objectives, run and analyze experiments independently, separate training from validation data, and submit one reproducible capstone report. The research direction after joining the group will follow the professor's guidance.
+Each study day includes concept notes, a syntax reference, and exercises. Progress is through Week 6 Day 6; see the [12-week plan](daily-weekly-study-plan-12-weeks.md) for remaining work. The course is not yet complete. Explanations and some reference solutions were written with AI assistance; completion and execution records are retained rather than presented as wholly independent implementations.
